@@ -3,5 +3,6 @@ Rails.application.routes.draw do
                                     registrations: 'users/registrations' }
   resources :users, only: :show
 
-  root 'users#show'
+  root 'chat_rooms#show'
+  mount ActionCable.server => '/cable'
 end

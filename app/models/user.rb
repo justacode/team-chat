@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook]
   validates :first_name, :last_name, presence: true
+  has_many :messages
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

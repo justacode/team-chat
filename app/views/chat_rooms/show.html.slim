@@ -1,0 +1,15 @@
+h1 ChatRoom
+table
+  tr
+    td
+      #messages
+        = render @messages
+    td
+      #members
+        = render @users
+  tr
+    td
+      form
+        label Message:
+        br/
+        input type="text" data-behaviour="chat_room_speaker"
