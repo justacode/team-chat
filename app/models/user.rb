@@ -7,8 +7,9 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.first_name = auth.info.first_name
-      user.last_name = auth.info.last_name
+      full_name = auth.info.name.split(' ')
+      user.first_name = full_name.first
+      user.last_name = full_name.last
       user.email = auth.info.email
       user.provider = auth.provider
       user.uid = auth.uid
