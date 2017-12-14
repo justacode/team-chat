@@ -1,0 +1,9 @@
+nav.navbar.navbar-inverse role="navigation"
+  .container-fluid
+    .navbar-header
+      = link_to "TeamChat", root_path, class: "navbar-brand"
+    ul.nav.navbar-nav
+      li.active
+        = link_to "Edit profile", edit_user_registration_path(current_user), class: "nav-link"
+    .nav.navbar-nav.navbar-right
+      = link_to "Sign out", destroy_user_session_path, method: :delete, class:"navbar-brand"

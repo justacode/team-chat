@@ -3,11 +3,13 @@ class ChatRoomChannel < ApplicationCable::Channel
     stream_from 'chat_room_channel'
   end
 
-  def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
-  end
+  def unsubscribed; end
 
   def speak(data)
-    MessageBroadcastJob.perform_later data['message'], current_user
+    NewMessageJob.perform_later data['message'], current_user
+  end
+
+  def edit(data)
+    UpdatedMessageJob.perform_later data['updated_message'], data['message_id']
   end
 end

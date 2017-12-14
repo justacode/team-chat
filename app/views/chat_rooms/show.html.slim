@@ -1,15 +1,20 @@
-h1 ChatRoom
-table
-  tr
-    td
-      #messages
-        = render @messages
-    td
-      #members
-        = render @users
-  tr
-    td
-      form
-        label Message:
-        br/
-        input type="text" data-behaviour="chat_room_speaker"
+.container
+  .row
+    .col-sm-3.col-sm-offset-2
+      h1 Members of conversation:
+      .panel.panel-primary
+        .panel-body
+          #members
+            = render users
+    .col-sm-5
+      = content_tag "div", id: "chatroom", data: { user_id: current_user.id }
+        h1 ChatRoom
+        .panel.panel-primary
+          .panel-body
+            .messages
+              = render messages
+        button.btn.btn-primary#new-msg-btn Add message
+        form#new-msg-form
+          label Type your message here and press Enter button:
+          br/
+          input type="text" data-behaviour="chat_room_speaker"

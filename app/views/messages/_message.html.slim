@@ -1,5 +1,13 @@
-.message
-  p
-  = message.user.first_name
-  br
-  = message.content
+div class=(message.user == current_user ? 'message' : 'partners-message') id="message-#{message.id}"
+  .message-head
+    p
+    strong => message.user.first_name
+    => message.posted_at
+    - if message.user == current_user
+      button.btn.btn-default.btn-sm.edit-msg-btn id="#{message.id}" type="button" Edit
+  .message-body
+    div id="content-#{message.id}"
+      = message.content
+  form.edit-msg-form id="#{message.id}"
+    input type="text" data-behaviour="chat_room_editor" value="#{message.content}"
+hr

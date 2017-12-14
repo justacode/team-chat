@@ -1,3 +1,29 @@
-// Place all the styles related to the chat_rooms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.panel-body {
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+#new-msg-form {
+    display: none;
+    padding: 10px;
+}
+
+.edit-msg-form {
+    display: none;
+    padding: 10px;
+}
+
+.partners-message {
+    margin-left: 50%;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    word-wrap: break-word;
+}
