@@ -1,24 +1,27 @@
-# README
+# TeamChat
+## A simple online chat based on ActionCable with single chat room
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## App functions
 
-Things you may want to cover:
+* User can sign in via facebook or in a standard way
 
-* Ruby version
+* Registrated users can see the list of another registrated users
 
-* System dependencies
+* Registrated users can send messages to each other and edit them
 
-* Configuration
+* Registrated users can change their personal attributes or delete account
 
-* Database creation
+## Dependencies
 
-* Database initialization
+- Ruby 2.4.2
+- Rails 5.1.4
+- Postgrsql 9.5.1
 
-* How to run the test suite
+## Bootstrap application
 
-* Services (job queues, cache servers, search engines, etc.)
+Clone application repository
 
-* Deployment instructions
-
-* ...
+```bash
+git clone git@github.com:justacode/team-chat.git
+cd rlms
+```
