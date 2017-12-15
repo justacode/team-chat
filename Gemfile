@@ -20,11 +20,11 @@ gem 'rails', '~> 5.1.4'
 gem 'redis', '~> 3.3'
 gem 'sass-rails', '~> 5.0'
 gem 'slim'
-gem 'sqlite3'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
