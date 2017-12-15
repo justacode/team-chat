@@ -22,6 +22,28 @@
 Clone application repository
 
 ```bash
-git clone git@github.com:justacode/team-chat.git
+git clone https://github.com/justacode/team-chat.git
 cd rlms
 ```
+
+Configure database.yml and run command:
+
+```bash
+bin/setup
+```
+
+If you want to use omniauth facebook authentication registrate your app at https://developers.facebook.com/ and create your secrets via command:
+
+```bash
+rails secrets:setup
+```
+
+Then run edit your secrets via:
+
+
+```bash
+rails secrets:edit
+```
+
+And set your app_id and app_secret parameters there
+
