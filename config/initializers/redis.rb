@@ -1,3 +1,2 @@
-encoded_url = URI.encode(ENV["REDISTOGO_URL"])
-uri = URI.parse(encoded_url)
+uri = URI.parse(ENV.fetch("REDISTOGO_URL", "redis://localhost:6379/"))
 REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)

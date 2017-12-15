@@ -49,6 +49,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  ENV['REDISTOGO_URL'] = 'redis://redistogo:b9fc604b1c86a1f6c232ce1dd16cd989@albacore.redistogo.com:10280/'
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
