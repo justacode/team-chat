@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.4.2'
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
@@ -17,7 +17,7 @@ gem 'omniauth-facebook'
 gem 'pg'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
-gem 'redis', '~> 3.3'
+gem 'redis'
 gem 'sass-rails', '~> 5.0'
 gem 'slim'
 gem 'turbolinks', '~> 5'

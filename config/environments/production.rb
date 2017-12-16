@@ -86,6 +86,8 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  ENV['REDISTOGO_URL'] = 'redis://redistogo:97fb33b3664c5e2ca76982055fb2b325@soldierfish.redistogo.com:9514/'
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
