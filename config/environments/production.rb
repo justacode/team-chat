@@ -86,6 +86,10 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  ENV['REDISTOGO_URL'] = 'redis://albacore.redistogo.com:10280/'
+  ENV['REDISTOGO_PASSWORD'] = 'redistogo'
+  ENV['REDISTOG_USERNAME'] = 'b9fc604b1c86a1f6c232ce1dd16cd989'
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
