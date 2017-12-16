@@ -6,4 +6,5 @@ test:
 
 production:
   adapter: redis
+  url: redis://redistogo:97fb33b3664c5e2ca76982055fb2b325@soldierfish.redistogo.com:9514/
   channel_prefix: team-chat_production
