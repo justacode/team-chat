@@ -23,7 +23,7 @@ Clone application repository
 
 ```bash
 git clone https://github.com/justacode/team-chat.git
-cd rlms
+cd team-chat
 ```
 
 Configure database.yml and run command:
