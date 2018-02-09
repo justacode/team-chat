@@ -1,13 +1,19 @@
-div class=(message.user == current_user ? 'message' : 'partners-message') id="message-#{message.id}"
-  .message-head
-    p
+.msg class=(message.user == current_user ? "users" : "partners") id="#{message.id}"
+  .msg-head
     strong => message.user.first_name
     => message.posted_at
     - if message.user == current_user
-      button.btn.btn-default.btn-sm.edit-msg-btn id="#{message.id}" type="button" Edit
-  .message-body
-    div id="content-#{message.id}"
-      = message.content
-  form.edit-msg-form id="#{message.id}"
+      div.buttons style=("display : none;" if message.archieved?)
+        button.btn.btn-default.btn-sm.edit-msg-btn type="button" Edit
+        button.btn.btn-danger.btn-sm.remove-msg-btn type="button" Remove
+  .msg-body
+    .msg-content
+      - if message.archieved?
+        .removed-msg message deleted 
+        - if message.user == current_user
+          button.btn.btn-default.btn-sm.restore-msg-btn restore
+      - else
+        = message.content
+  form.edit-msg-form
     input type="text" data-behaviour="chat_room_editor" value="#{message.content}"
 hr

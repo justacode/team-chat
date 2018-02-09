@@ -8,4 +8,8 @@ class MessageDecorator < ApplicationDecorator
   def posted_at
     object.created_at.strftime('%m/%d/%y at %H:%M')
   end
+
+  def archieved?
+    object.archieved
+  end
 end

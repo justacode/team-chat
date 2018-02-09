@@ -10,6 +10,14 @@ class ChatRoomChannel < ApplicationCable::Channel
   end
 
   def edit(data)
-    UpdatedMessageJob.perform_later data['updated_message'], data['message_id']
+    UpdatedMessageJob.perform_later data['updated'], data['message_id']
+  end
+
+  def remove(data)
+    RemovedMessageJob.perform_later data['message_id']
+  end
+
+  def restore(data)
+    RestoredMessageJob.perform_later data['message_id']
   end
 end

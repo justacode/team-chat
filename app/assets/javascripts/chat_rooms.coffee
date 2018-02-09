@@ -3,11 +3,11 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'click', 'button#new-msg-btn', () ->
-  $("#new-msg-form").slideToggle()
+  $('#new-msg-form').slideToggle()
   return false
 
 $(document).on 'click', 'button.edit-msg-btn', (event) ->
-  msg_id = event.target.id
-  $("#content-#{msg_id}").toggle()
-  $("##{msg_id}.edit-msg-form").toggle()
+  message = $(event.target).closest('.msg')
+  message.find('.msg-content').toggle()
+  message.find('.edit-msg-form').toggle()
   return false

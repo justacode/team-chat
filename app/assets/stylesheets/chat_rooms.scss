@@ -13,7 +13,7 @@
     padding: 10px;
 }
 
-.partners-message {
+.partners {
     margin-left: 50%;
 }
 
@@ -26,4 +26,16 @@ hr {
 
 .content {
     word-wrap: break-word;
+}
+
+.removed-msg {
+    font-style: italic;
+}
+
+.current {
+    text-decoration: underline;
+}
+
+.invisible {
+    display: none;
 }
