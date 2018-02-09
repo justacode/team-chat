@@ -1,4 +1,4 @@
-.msg class=(message.user == current_user ? "users" : "partners") id="#{message.id}"
+.msg class=(message.user == current_user ? "users" : "partners") id="#{message.id}" data-user-id="#{message.user.id}"
   .msg-head
     strong => message.user.first_name
     => message.posted_at
@@ -9,7 +9,7 @@
   .msg-body
     .msg-content
       - if message.archieved?
-        .removed-msg message deleted 
+        .removed-msg message was deleted 
         - if message.user == current_user
           button.btn.btn-default.btn-sm.restore-msg-btn restore
       - else

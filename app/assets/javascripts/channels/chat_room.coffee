@@ -26,34 +26,35 @@ App.chat_room = App.cable.subscriptions.create "ChatRoomChannel",
     @perform 'restore', message_id: message_id
 
   addNewMessage: (message, user_id) ->
-    current_user_id = $('#chatroom').data('user-id')
     wrap = $("<div>" + message + "</div>")
-    unless user_id == current_user_id
+    unless user_id == @currentUserId()
       wrap.find('.edit-msg-btn').remove()
+      wrap.find('.remove-msg-btn').remove()
       wrap.find('.message').addClass('partners-message')
     $('.messages').append wrap.html()
 
   addUpdatedMessage: (updated) ->
-    message = @messageContent(updated.id)
+    message = $(".msg##{updated.id}").find('.msg-content')
     message.text(updated.content)
     message.toggle() unless message.is(":visible")
 
   removeMessage: (removed_id) ->
-    message = @messageContent(removed_id)
-    message.text('message deleted')
-    message.addClass('removed-msg')
-    restore_button = $('</br><button class="btn btn-default btn-sm restore-msg-btn">restore</button>')
-    message.append restore_button
+    message =  $(".msg##{removed_id}")
+    content = message.find(".msg-content")
+    content.text('message was deleted')
+    content.addClass('removed-msg')
+    restore_button = $('<button class="btn btn-default btn-sm restore-msg-btn">restore</button>')
+    message.append restore_button if message.data('user-id') == @currentUserId()
 
   restoreMessage: (restored) ->
     message = $(".msg##{restored.id}")
     message.find('.msg-content').text(restored.content)
-    message.find('restore-msg-btn').remove()
+    message.find('.restore-msg-btn').remove()
     message.find('.buttons').show()
     message.removeClass('removed-msg')
 
-  messageContent: (id) ->
-    $(".msg##{id}").find('.msg-content')
+  currentUserId: () ->
+    $('#chatroom').data('user-id')
 
 $(document).on 'keypress', '[data-behaviour~=chat_room_speaker]', (event) ->
   if event.keyCode is 13
