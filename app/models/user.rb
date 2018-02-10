@@ -16,4 +16,18 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
     end
   end
+
+  def online
+    REDIS.sadd("online", "#{self.first_name} #{self.last_name}")
+    AppearanceJob.perform_later list
+  end
+
+  def offline
+    REDIS.srem("online", "#{self.first_name} #{self.last_name}")
+    AppearanceJob.perform_later list
+  end
+
+  def list
+    REDIS.smembers("online")
+  end
 end
