@@ -4,6 +4,7 @@ App.appearance = App.cable.subscriptions.create "AppearanceChannel",
   disconnected: ->
 
   received: (data) ->
+    $("#members").find("b").text('')
     @updateAppearance(a) for a in data.appearances
 
   updateAppearance: (appearance) ->
